@@ -221,7 +221,7 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
         - t-stat: 
         - p-value:
         - Result:
-  
+</details>  
 
 ## <a name="model"></a>Modeling:
 [[Back to top](#top)]
