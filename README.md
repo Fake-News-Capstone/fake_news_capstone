@@ -8,7 +8,7 @@ What are the goals?
 # Fake News Capstone
 
 # <a name="top"></a>Fact or Fiction - README.md
-![Fake News](https://github.com/ljackson707/Fake-News-Capstone/fake_news_capstone/raw/main/Photos/fof.jpg)
+![Fake News](Photos/fof.jpg)
 ***
 [[Project Description](#project_description)]
 [[Project Planning](#planning)]
