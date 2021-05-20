@@ -12,6 +12,7 @@ What is our goal?
 [[Data Dictionary](#dictionary)]
 [[Acquire & Prep](#acquire_and_prep)]
 [[Data Exploration](#explore)]
+[[Statistical Analysis](#stats)]
 [[Modeling](#model)]
 [[Conclusion](#conclusion)]
 ___
@@ -49,7 +50,7 @@ ___
 https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.csv
 
 </details>
-    
+
     
 ## <a name="planning"></a>Project Planning: 
 [[Back to top](#top)]
@@ -93,7 +94,7 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
     - Record
         
 ### Hypothesis
-- Fake news articals are more prone to be more polarized and subjective.
+- Fake news articals are more prone to be polarized and subjective.
 
 ### Target variable
 - is_fake (If the news article is fake news)
@@ -138,16 +139,15 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
 
 </details>
 
-## <a name="acquire_and_prep"></a>Acquire & Prep:
+## <a name="wrangle"></a>Wrangle:
 [[Back to top](#top)]
 
 <details>
   <summary>Click to expand!</summary>
 
-### Acquire Data:
+### Wrangle.py:
 - Gather fake newss dataset from Kaggle online database.
 
-### Acquire.py 
 | Function Name | Purpose |
 | ----- | ----- |
 |  |  |
@@ -164,7 +164,6 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
     - 
     - 
 
-### Wrangle.py 
 | Function Name | Purpose |
 | ----- | ----- |
 |  |  |
@@ -197,6 +196,30 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
 ***
 
 </details>    
+
+## <a name="stats"></a>Statistical Analysis
+[[Back to top](#top)]
+<details>
+  <summary>Click to expand!</summary>
+
+### Stats
+
+- Stat Test 1: 
+    - **T-Testing**:
+        - HO: 
+        - HA:
+        - t-stat: 
+        - p-value:
+        - Result:
+
+- Stat Test 2: 
+    - **Test Type**:
+        - HO: 
+        - HA:
+        - t-stat: 
+        - p-value:
+        - Result:
+  
 
 ## <a name="model"></a>Modeling:
 [[Back to top](#top)]
@@ -278,7 +301,7 @@ Validation/Out-of-Sample:
 ## Testing the Model
 
 - Model Test Results
-     - Out-of-Sample Performance:  0.1518694361646674
+     - Performance: 
 
 
 ***
@@ -297,4 +320,3 @@ Validation/Out-of-Sample:
 </details>  
 
 >>>>>>>>>>>>>>>
-.
