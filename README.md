@@ -1,13 +1,9 @@
-# fake_news_capstone
-
-What are the goals?
-- Create a classification model that can accurately identify fake news and not-fake news articles while utilizing NLP tools like NLTK, Sentiment Analysis, and TF-IDF Vectorizer in addition to the standard data science tools.
-- Our secondary goal is to create a public web application that can be used to identify fake and not fake news.
-- After acquiring our MVP, we would like to create a deep learning model.
-
 # Fake News Capstone
 
-# <a name="top"></a>Fact or Fiction - README.md
+What is our goal?
+- Our team seeks to differentiate fake news from real news through the exploration and analysis of keywords and phrases of random news articles. We will utilize NLP tools and build a classification model in hopes to shed light on purposely misleading information.
+
+# <a name="top"></a> Fake News Capstone - README.md
 ![Fake News](Photos/fof.jpg)
 ***
 [[Project Description](#project_description)]
@@ -16,7 +12,6 @@ What are the goals?
 [[Data Dictionary](#dictionary)]
 [[Acquire & Prep](#acquire_and_prep)]
 [[Data Exploration](#explore)]
-[[Statistical Analysis](#stats)]
 [[Modeling](#model)]
 [[Conclusion](#conclusion)]
 ___
@@ -28,13 +23,15 @@ ___
   <summary>Click to expand!</summary>
 
 ### Description
-- Our team seeks to differentiate fake news from real news through the exploration and analysis of keywords and phrases of random news articles. We will utilize NLP tools and build a classification model in hopes to shed light on purposely misleading information. 
+- Within this project we will be using the fake news dataset acquired from the Kaggle database.
+- We will clean the data through tokenizing, lematizing, vecotrizing, and removing stop words.
+- Then we will explore the data through bigrams and trigrams, while also generating word clouds. 
+- Lastly we will make a model that can accuratly identify fake news articals.
 
 ### Goals
-- What are the goals?
-    - Create a classification model that can accurately identify fake news and not-fake news articles while utilizing NLP tools like NLTK, Sentiment Analysis, and TF-IDF Vectorizer in addition to the standard data science tools.
-    - Our secondary goal is to create a public web application that can be used to identify fake and not fake news.
-    - After acquiring our MVP, we would like to create a deep learning model.
+- Create a classification model that can accurately identify fake news and not-fake news articles while utilizing NLP tools like NLTK, Sentiment Analysis, and TF-IDF Vectorizer in addition to the standard data science tools.
+- Our secondary goal is to create a public web application that can be used to identify fake and not fake news.
+- After acquiring our MVP, we would like to create a deep learning model.
 
 ### Where did you get the data?
 - We acquired the data from the Kaggle online database.
@@ -67,6 +64,7 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
     - Tokenize
     - Lemmatize
     - Remove stop words
+    - Vectorize
 
 - Explore data
     - Identfy top 10 words in fake news and non-fake news articales.
@@ -95,8 +93,7 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
     - Record
         
 ### Hypothesis
-- Fake news articals are more prone to have politically driven words such as:
-    -
+- Fake news articals are more prone to be more polarized and subjective.
 
 ### Target variable
 - is_fake (If the news article is fake news)
@@ -113,15 +110,13 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
 ### Explore:
 - Findings:
 
-### Stats
+### Statistics:
 - Findings: 
 
 ### Modeling:
 - Findings:
 
 ***
-
-    
 </details>
 
 ## <a name="dictionary"></a>Data Dictionary  
@@ -140,7 +135,7 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
 | date | The date at which the artical was posted | string |
 | is_fake | If the news article is fake news | string |
 
-***
+
 </details>
 
 ## <a name="acquire_and_prep"></a>Acquire & Prep:
@@ -150,7 +145,7 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
   <summary>Click to expand!</summary>
 
 ### Acquire Data:
-- Gather data from Kaggle online database.
+- Gather fake newss dataset from Kaggle online database.
 
 ### Acquire.py 
 | Function Name | Purpose |
@@ -209,14 +204,8 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
   <summary>Click to expand!</summary>
 
 Summary of modeling choices...
-
-### Baseline
-
-- Baseline Results: 
-    - Median In sample = 0.16
-    - Median Out of sample = 0.15
         
-### Models and R<sup>2</sup> Values:
+### Models
 - Will run the following models:
     - 
     -
@@ -233,33 +222,33 @@ Validation/Out-of-Sample:
 
 ### Model 1
     
-Training/In-Sample:  0.012348907010552293 
+Training/In-Sample: 
     
-Validation/Out-of-Sample:  0.011532822479710627
+Validation/Out-of-Sample: 
     
 
     
 ### Model 2
     
-Training/In-Sample:  0.01234045919349956 
+Training/In-Sample:  
     
-Validation/Out-of-Sample:  0.011536767590909373
+Validation/Out-of-Sample: 
     
 
     
 ### Model 3
     
-Training/In-Sample:  0.012288891953326782 
+Training/In-Sample: 
     
-Validation/Out-of-Sample:  0.011543443686491118
+Validation/Out-of-Sample: 
     
 
     
 ### Model 4
     
-Training/In-Sample:  0.012288891953326782 
+Training/In-Sample: 
     
-Validation/Out-of-Sample:  0.011543443686491118
+Validation/Out-of-Sample: 
 
 
 
@@ -306,9 +295,6 @@ Validation/Out-of-Sample:  0.011543443686491118
     
 
 </details>  
-
-![Folder Contents]()
-
 
 >>>>>>>>>>>>>>>
 .
