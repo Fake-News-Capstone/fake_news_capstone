@@ -25,26 +25,26 @@ ___
 
 ### Description
 - Within this project we will be using the fake news dataset acquired from the Kaggle database.
-- We will clean the data through tokenizing, lematizing, vecotrizing, and removing stop words.
+- We will clean the data through tokenizing, lemmatizing, vectorizing, and removing stop words.
 - Then we will explore the data through bigrams and trigrams, while also generating word clouds. 
-- Lastly we will make a model that can accuratly identify fake news articals.
+- Lastly we will make a model that can accurately identify fake news articles.
 
 ### Goals
-- Create a classification model that can accurately identify fake news and not-fake news articles while utilizing NLP tools like NLTK, Sentiment Analysis, and TF-IDF Vectorizer in addition to the standard data science tools.
-- Our secondary goal is to create a public web application that can be used to identify fake and not fake news.
+- Create a classification model that can accurately identify fake news and real news articles while utilizing NLP tools like NLTK, Sentiment Analysis, and TF-IDF Vectorizer in addition to the standard data science tools.
+- Our secondary goal is to create a public web application that can be used to identify fake news.
 - After acquiring our MVP, we would like to create a deep learning model.
 
 ### Where did you get the data?
 - We acquired the data from the Kaggle online database.
 
 ### Data Contents:
-- 20,826 unqiue Real articals
-- 17,903 unique Fake articals
-- 38,729 total unique articals
-- Title of artical
-- Text of artical
-- Subject of artical
-- Date of when the artical was posted.
+- 20,826 unqiue Real articles
+- 17,903 unique Fake articles
+- 38,729 total unique articles
+- Title of article
+- Text of article
+- Subject of article
+- Date of when the article was posted.
 
 ### Link to data: 
 https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.csv
@@ -59,7 +59,7 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
 
 ### Projet Outline:
     
-- Acquisiton of data through Kaggles online database.
+- Acquisition of data through Kaggles online database.
 
 - Prepare and clean data with python/NLP tools - Jupyter Labs
     - Tokenize
@@ -68,11 +68,11 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
     - Vectorize
 
 - Explore data
-    - Identfy top 10 words in fake news and non-fake news articales.
-    - Comapre the propation of words that show up in fake news vs real news.
-    - Generate bigrams and trigrams to vizualize two to three word sequences and their relationships to fake or real news.
-    - Generate single word, bigram, trigram, word clouds to vizualize reiterations for specifc words and word sequences.
-    - Calcaute TF, IDF, TF-IDF.
+    - Identify top 10 words in fake news and real news articales.
+    - Compare the proportion of words that show up in fake news vs real news.
+    - Generate bigrams and trigrams to visualize two to three word sequences and their relationships to fake or real news.
+    - Generate single word, bigram, trigram, word clouds to vizualize reiterations for specific words and word sequences.
+    - Calculate TF, IDF, TF-IDF.
     - Create a final explore.py with helper fucntions
 
 - Feature Engineering (after MVP)
@@ -94,7 +94,7 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
     - Record
         
 ### Hypothesis
-- Fake news articals are more prone to be polarized and subjective.
+- Fake news articles are more prone to be polarized and subjective.
 
 ### Target variable
 - is_fake (If the news article is fake news)
@@ -130,11 +130,13 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
     
 | Attribute | Definition | Data Type |
 | ----- | ----- | ----- |
-| title  |  The title of the artical | string |     
-| text |  The text of the artical | string |    
-| subject | The subject of the artical | string |
-| date | The date at which the artical was posted | string |
-| is_fake | If the news article is fake news | string |
+| title  |  The title of the article | string |     
+| text |  The text of the article | string |    
+| subject | The subject of the article | string |
+| date | The date at which the article was posted | string |
+  
+|target|
+| is_fake | If the news article is fake news | boolean |
 
 
 </details>
@@ -146,7 +148,7 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
   <summary>Click to expand!</summary>
 
 ### Wrangle.py:
-- Gather fake newss dataset from Kaggle online database.
+- Gather fake news dataset from Kaggle online database.
 
 | Function Name | Purpose |
 | ----- | ----- |
