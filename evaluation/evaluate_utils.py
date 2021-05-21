@@ -77,10 +77,10 @@ def _print_comparison(model_errors, baseline_errors):
     print(pd.DataFrame(index=baseline_errors.keys(), columns=["baseline"], data=baseline_errors.values()))
     print("----------------------------------------------")
     
-def print_model_evaluation(sample_df):
-    print('Accuracy: {:.2%}'.format(accuracy_score(sample_df.actual, sample_df.predicted)))
+def print_model_evaluation(sample_df, prediction_key):
+    print('Accuracy: {:.2%}'.format(accuracy_score(sample_df.actual, sample_df[prediction_key])))
     print('---')
     print('Confusion Matrix')
-    print(pd.crosstab(sample_df.predicted, sample_df.actual))
+    print(pd.crosstab(sample_df[prediction_key], sample_df.actual))
     print('---')
-    print(classification_report(sample_df.actual, sample_df.predicted))
+    print(classification_report(sample_df.actual, sample_df[prediction_key]))
