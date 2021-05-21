@@ -133,11 +133,11 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
 | title  |  The title of the article | string |     
 | text |  The text of the article | string |    
 | subject | The subject of the article | string |
-| date | The date at which the article was posted | string |
-  
+| date | The date at which the article was posted | string |  
 |target|
 | is_fake | If the news article is fake news | boolean |
-
+| clean_title | Cleaned text of articles | string |
+| clean_text | Cleaned title of articles | string |
 
 </details>
 
