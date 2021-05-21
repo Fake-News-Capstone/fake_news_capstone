@@ -50,15 +50,15 @@ def _standardize_dates(df):
 def _nlp_clean_titles_and_text(df):
     articles_df = df.copy()
     
-    articles_df.title = articles_df.title.apply(utils.nlp_basic_clean)
-    articles_df.title = articles_df.title.apply(utils.nlp_tokenize)
-    articles_df.title = articles_df.title.apply(utils.nlp_remove_stopwords, extra_words=["reuters"])
-    articles_df.title = articles_df.title.apply(utils.nlp_lemmatize)
+    articles_df['clean_title'] = articles_df.title.apply(utils.nlp_basic_clean)
+    articles_df.clean_title = articles_df.clean_title.apply(utils.nlp_tokenize)
+    articles_df.clean_title = articles_df.clean_title.apply(utils.nlp_remove_stopwords, extra_words=["reuters"])
+    articles_df.clean_title = articles_df.clean_title.apply(utils.nlp_lemmatize)
     
-    articles_df.text = articles_df.text.apply(utils.nlp_basic_clean)
-    articles_df.text = articles_df.text.apply(utils.nlp_tokenize)
-    articles_df.text = articles_df.text.apply(utils.nlp_remove_stopwords, extra_words=["reuters"])
-    articles_df.text = articles_df.text.apply(utils.nlp_lemmatize)
+    articles_df['clean_text'] = articles_df.text.apply(utils.nlp_basic_clean)
+    articles_df.clean_text = articles_df.clean_text.apply(utils.nlp_tokenize)
+    articles_df.clean_text = articles_df.clean_text.apply(utils.nlp_remove_stopwords, extra_words=["reuters"])
+    articles_df.clean_text = articles_df.clean_text.apply(utils.nlp_lemmatize)
     
     return articles_df
 
