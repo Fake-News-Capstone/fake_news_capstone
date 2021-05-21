@@ -64,16 +64,18 @@ def _nlp_clean_titles_and_text(df):
 
 
 def wrangle_articles():
-    all_articles_df = _combine_csv_files(env.data_path)
+    articles_df = _combine_csv_files(env.data_path)
     
-    all_articles_df = _standardize_dates(all_articles_df)
-    all_articles_df.date = pd.to_datetime(all_articles_df.date, format="%b %d, %Y")
+    articles_df = _standardize_dates(articles_df)
+    articles_df.date = pd.to_datetime(articles_df.date, format="%b %d, %Y")
     
-    all_articles_df = _nlp_clean_titles_and_text(all_articles_df)
-    all_articles_df = all_articles_df.sort_values(by='date')
+    articles_df = _nlp_clean_titles_and_text(articles_df)
+    articles_df = articles_df.sort_values(by='date')
     
-    positions = utils.nan_null_empty_check(all_articles_df)
+    positions = utils.nan_null_empty_check(articles_df)
     drop_rows = list(positions['empty_positions'][0])
-    only_articles_with_text_df = all_articles_df.drop(index=drop_rows)
+    articles_df = articles_df.drop(index=drop_rows)
     
-    return all_articles_df, only_articles_with_text_df
+    articles_df = articles_df.drop_duplicates(subset=['title','text'])
+    
+    return articles_df
