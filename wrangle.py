@@ -3,7 +3,11 @@ import pandas as pd
 import numpy as np
 import utilities as utils
 import spacy
+
 from spacytextblob.spacytextblob import SpacyTextBlob
+
+_nlp = spacy.load('en_core_web_md')
+_nlp.add_pipe("spacytextblob")
 
 def _combine_csv_files(data_path=""):
     fake_df = pd.read_csv(data_path + "Fake.csv")
@@ -72,6 +76,25 @@ def _drop_empty_rows(df):
     
     return articles_df.dropna()
 
+def _polarity(text):
+    '''function takes a body of text and outputs the polarity score [-1.0:1.0]'''
+    doc = _nlp(text)
+    return doc._.polarity
+
+def _subjectivity(text):
+    '''fuction takes a body of text and outputs the subjectivity score [0.0:1.0]'''
+    doc = _nlp(text)
+    return doc._.subjectivity
+
+def _add_sentiment_analysis(df):
+    articles_df = df.copy()
+    
+    articles_df['title_polarity'] = articles_df.clean_title.apply(_polarity)
+    articles_df['title_subjectivity'] = articles_df.clean_title.apply(_subjectivity)
+    articles_df['text_polarity'] =articles_df.clean_text.apply(_polarity)
+    articles_df['text_subjectivity'] = articles_df.clean_text.apply(_subjectivity)
+    
+    return articles_df
 
 def wrangle_articles():
     articles_df = _combine_csv_files(env.data_path)
@@ -85,17 +108,4 @@ def wrangle_articles():
     articles_df = _drop_empty_rows(articles_df)
     articles_df = articles_df.drop_duplicates(subset=['title','text'])
     
-    return articles_df
-
-nlp = spacy.load('en_core_web_md')
-nlp.add_pipe("spacytextblob")
-
-def polarity(text):
-    '''function takes a body of text and outputs the polarity score [-1.0:1.0]'''
-    doc = nlp(text)
-    return doc._.polarity
-
-def subjectivity(text):
-    '''fuction takes a body of text and outputs the subjectivity score [0.0:1.0]'''
-    doc = nlp(text)
-    return doc._.subjectivity   
+    return _add_sentiment_analysis(articles_df)
