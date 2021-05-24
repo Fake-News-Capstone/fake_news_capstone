@@ -1,6 +1,8 @@
 import env
 import pandas as pd
 import utilities as utils
+import spacy
+from spacytextblob.spacytextblob import SpacyTextBlob
 
 def _combine_csv_files(data_path=""):
     fake_df = pd.read_csv(data_path + "Fake.csv")
@@ -79,3 +81,16 @@ def wrangle_articles():
     articles_df = articles_df.drop_duplicates(subset=['title','text'])
     
     return articles_df
+
+nlp = spacy.load('en_core_web_md')
+nlp.add_pipe("spacytextblob")
+
+def polarity(text):
+    '''function takes a body of text and outputs the polarity score [-1.0:1.0]'''
+    doc = nlp(text)
+    return doc._.polarity
+
+def subjectivity(text):
+    '''fuction takes a body of text and outputs the subjectivity score [0.0:1.0]'''
+    doc = nlp(text)
+    return doc._.subjectivity   
