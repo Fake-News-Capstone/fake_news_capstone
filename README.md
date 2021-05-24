@@ -41,10 +41,17 @@ ___
 - 20,826 unqiue Real articles
 - 17,903 unique Fake articles
 - 38,729 total unique articles
-- Title of article
-- Text of article
-- Subject of article
-- Date of when the article was posted.
+- date of when the article was posted.
+- subject of article
+- title of article
+- text of article
+- clean_title
+- clean_text
+- is_fake
+- title_polarity
+- title_subjectivity
+- text_polarity
+- text_subjectivity
 
 ### Link to data: 
 https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.csv
@@ -109,13 +116,13 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
   <summary>Click to expand!</summary>
 
 ### Explore:
-- Findings:
+- Findings: 
 
 ### Statistics:
 - Findings: 
 
 ### Modeling:
-- Findings:
+- Findings: The most reliable model was the logistic regression model with an in sample accuracy of .99 and an out of sample accuarcy of .98.
 
 ***
 </details>
@@ -138,7 +145,10 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
 | is_fake | If the news article is fake news | boolean |
 | clean_title | Cleaned text of articles | string |
 | clean_text | Cleaned title of articles | string |
-
+| title_polarity | 1 to -1 the more negative, the more polarization in the article | float |
+| title_subjectivity | 0 to 1 the closer to one the more subjective the title is | float |
+| text_polarity | 1 to -1 the more negative, the more polarization in the article | float |
+| text_subjectivity | 0 to 1 the closer to one the more subjective the article is  | float |
 </details>
 
 ## <a name="wrangle"></a>Wrangle:
@@ -150,25 +160,36 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
 ### Wrangle.py:
 - Gather fake news dataset from Kaggle online database.
 
-| Function Name | Purpose |
-| ----- | ----- |
-|  |  |
-
-
 ### Prepare Data
 - To clean the data we had to:
-    - 
-    - 
-    - 
+    - Lemmatized
+    - Tokenize
+    - Vectorized 
+    - Remove stop words
+    - Remove duplicate rows
+    - Remove nulls and NANs
 
+| Function Name | Purpose |
+| ----- | ----- |
+| _nlp_clean_titles_and_text | This function takes in a dataframe and applies, tokenize, lemmatize, basic_clean, and removes all stop words for each csv file. |
+| nlp_basic_clean |  |
+| nlp_tokenize |  |
+| nlp_remove_stopwords |  |
+| nlp_lemmatize |  |
+    
 - From here we :
-    - 
-    - 
+    - Combined the two csv files (fake.csv, real.csv)
+    - Set the date to data time format
     - 
 
 | Function Name | Purpose |
 | ----- | ----- |
-|  |  |
+| _combine_csv_files | This function  |
+| _determine_value_in_correct_format |  |
+| _standardize_dates |  |
+| _drop_empty_rows |  |
+| wrangle_articles |  |
+
 ​
 ***
     
@@ -180,21 +201,56 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
 <details>
   <summary>Click to expand!</summary>
 
-### Findings:
-- 
+***   
+    
+Findings 1:
+![title](Photos/fof.jpg)
+  
+### Takeaways:
+    - 
+    
+***   
+    
+Findings 2:
+![title](Photos/fof.jpg)
+ 
+### Takeaways:   
+    -
+    
+***
 
+Findings 3:
+![title](Photos/fof.jpg)
+
+### Takeaways:   
+    -
+
+***   
+    
+Findings 4:
+![title](Photos/fof.jpg)
+
+### Takeaways:   
+    -
+
+***
+    
+    
 ### Explore.py 
 | Function Name | Definition |
 | ------------ | ------------- |
-|  |  |
+| _show_counts_and_ratios | This fucntion takes in a dataframe and column name. Will produce a valuecounts for each label and the percetage of the data it represents |
+| _percentFakevsReal | This function takes in word_counts and returns a horizontal bar plot of the proportions of Fake vs Real news for the 20 most common words |
+| _wordcounts_all | This function takes in word_counts. Makes sure all words for 'fake' and 'all' are greater than 10. Generates a ratio column of fake words to all words and returns a dataframe of all the word counts and ratios for all, fake, and real words |
+| _wordcount_fake | This function takes in word_counts. Makes sure all words for 'fake' and 'real' are greater than 10. Generates a ratio column of fake words to real words and returns a dataframe of all the word counts and ratios for all, fake, and real words|
+| _wordcount_real | This function takes in word_counts. Makes sure all words for 'fake' and 'real' are greater than 10. Generates a ratio column of real words to fake words and returns a dataframe of all the word counts and ratios for all, fake, and real words |
+| _word_clouds_rfa | This function takes in all_words, fake_words, real_words. generates a word cloud for each aurgument with a fig size of (10, 8) and titles of all_cloud, fake_cloud, real_cloud. Returns a set of word clouds for all_words, fake_words, real_words |
+| _fake_bigrams | This function takes in fake_words. Generates a horizonalt bar chart with x and y labels for the top 20 fake bigrams. |
+| _real_bigrams | This function takes in real_words. Generates a horizontal bar chart with x and y labels for the top 20 real bigrams.  |
+| _fake_trigrams | This function takes in fake_words. Generates a horizontal bar chart with x and y labels for the top 20 fake trigrams.  |
+| _real_trigrams | This function takes in real_words. Generates a horizontal bar chart with x and y labels for the top 20 real trigrams.  |
 
 
-### Function1 used:
-- Outcome of the use of the function 
-​
-### Function2 used:
-- Outcome of the use of the function 
-​
 ***
 
 </details>    
@@ -232,49 +288,65 @@ Summary of modeling choices...
         
 ### Models
 - Will run the following models:
-    - 
-    -
-    -
+    - Logistic Regression
+    - Decision Tree
+    - Random Forest
+    - K Nearest Neighbors
 
 
 ### Baseline Model
 
-Training/In-Sample:
-
-Validation/Out-of-Sample: 
-
+Mode = is_fake = False
+Accuracy: .5484
 
 
-### Model 1
+### Model 1 (Logistic Regression)
     
-Training/In-Sample: 
+- Training/In-Sample:
+    - Accuracy: .99
+    - Recall False: .99 
+    - Recall True: .98
     
-Validation/Out-of-Sample: 
+- Validation/Out-of-Sample 
+    - Accuracy: .98
+    - Recall False: .99
+    - Recall True: .97
     
+### Model 2 (Decision Tree)
+    
+- Training/In-Sample: 
+    - Accuracy: .91 
+    - Recall False: .94
+    - Recall True: .88
+    
+- Validation/Out-of-Sample:
+    - Accuracy: .90
+    - Recall False: .93
+    - Recall True: .86
 
+### Model 3 (Random Forest)
     
-### Model 2
+- Training/In-Sample: 
+    - Accuracy: .96
+    - Recall False: .98
+    - Recall True: .93
     
-Training/In-Sample:  
+- Validation/Out-of-Sample:
+    - Accuracy: .95
+    - Recall False: .97
+    - Recall True: .92
     
-Validation/Out-of-Sample: 
+### Model 4 (K Nearest Neighbors)
     
-
+- Training/In-Sample: 
+    - Accuracy: .89
+    - Recall False: .97
+    - Recall True: .78
     
-### Model 3
-    
-Training/In-Sample: 
-    
-Validation/Out-of-Sample: 
-    
-
-    
-### Model 4
-    
-Training/In-Sample: 
-    
-Validation/Out-of-Sample: 
-
+- Validation/Out-of-Sample:
+    - Accuracy: .84
+    - Recall False: .96
+    - Recall True: .70
 
 
 ### Model.py 
@@ -285,26 +357,28 @@ Validation/Out-of-Sample:
 
 ### Use Table below as a template for all Modeling results for easy comparison:
 
-| Model | Training/In Sample | Validation/Out of Sample | R<sup>2</sup> Value |
-| ---- | ----| ---- | ---- |
-|  |   |  |  |
-|  |   |  |  |
-|  |   |  |  |
-|  |   |  |  |
-|  |   |  |  |
-|  |   |  |  |
+| Model | Training/In Sample Accuracy | Validation/Out of Sample Accuracy | In Sample Recall False | In Sample Recall True | Out of Sample Recall False | Out of Sample Recall True |
+| ------------------- | ----| --- | --- | --- | --- | --- |
+| Logistic Regression | .99 | .98 | .99 | .98 | .99 | .97 |
+| Decision Tree       | .91 | .90 | .94 | .88 | .93 | .86 |
+| Random Forest       | .96 | .95 | .98 | .93 | .97 | .92 |
+| K Nearest Neighbors | .89 | .84 | .97 | .78 | .96 | .70 |
+
 
 ## Best Model:
-- 
+- Logistic Regression
 
 - Why did you choose this model?
-    - 
-
+    - This model had the overall highst accuracy of .99 in sample and .98 out of sample.
+    - This mode l also had the least amount of overfitting with only a 1% decrease from in sample to out of sample tests.
+    - This model also had one of the best recal scores (number of fake news articles predicted / the actual number of fake news articles)
+    
 ## Testing the Model
 
 - Model Test Results
-     - Performance: 
-
+     - Accuracy: .98
+     - Recall False: .99
+     - Recall True: .97
 
 ***
 
