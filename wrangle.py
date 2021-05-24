@@ -1,5 +1,6 @@
 import env
 import pandas as pd
+import numpy as np
 import utilities as utils
 import spacy
 from spacytextblob.spacytextblob import SpacyTextBlob
@@ -64,6 +65,13 @@ def _nlp_clean_titles_and_text(df):
     
     return articles_df
 
+def _drop_empty_rows(df):
+    articles_df = df.copy()
+    
+    articles_df = articles_df.replace('', np.nan)
+    
+    return articles_df.dropna()
+
 
 def wrangle_articles():
     articles_df = _combine_csv_files(env.data_path)
@@ -74,10 +82,7 @@ def wrangle_articles():
     articles_df = _nlp_clean_titles_and_text(articles_df)
     articles_df = articles_df.sort_values(by='date')
     
-    positions = utils.nan_null_empty_check(articles_df)
-    drop_rows = list(positions['empty_positions'][0])
-    articles_df = articles_df.drop(index=drop_rows)
-    
+    articles_df = _drop_empty_rows(articles_df)
     articles_df = articles_df.drop_duplicates(subset=['title','text'])
     
     return articles_df
