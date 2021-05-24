@@ -273,6 +273,7 @@ def nlp_basic_clean(string):
     
     cleaned_string = string
     
+    cleaned_string = cleaned_string.strip()
     cleaned_string = cleaned_string.lower()
     cleaned_string = unicodedata.normalize("NFKD", cleaned_string).encode("ascii", "ignore").decode("utf-8", "ignore")
     cleaned_string = re.sub(r"[^a-z0-9'\s]", "", cleaned_string)
