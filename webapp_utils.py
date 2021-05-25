@@ -1,5 +1,7 @@
+import pandas as pd
 import requests
 from bs4 import BeautifulSoup
+import utilities as utils
 
 def get_page_text(url):
     html_page = requests.get(url).content
@@ -18,4 +20,14 @@ def get_page_text(url):
         out = out.replace(e, '')
 
     return out
+
+def clean(text):
+    clean_text = utils.nlp_basic_clean(text)
+    clean_text = utils.nlp_tokenize(clean_text)
+    return clean_text
+    
+def sl(text):
+    sl = utils.nlp_remove_stopwords(text, extra_words=["reuters"])
+    sl = utils.nlp_lemmatize(sl)
+    return sl
 
