@@ -4,6 +4,8 @@ import unicodedata
 import re
 import json
 import nltk
+nltk.download('stopwords')
+nltk.download('wordnet')
 
 from nltk.tokenize.toktok import ToktokTokenizer
 from nltk.corpus import stopwords

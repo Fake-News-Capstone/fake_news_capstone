@@ -8,7 +8,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 
-articles_df = pd.read_csv("articles.csv", index_col=0)
+articles_df = pd.read_csv("articles-web.csv", index_col=0)
 articles_df = articles_df.dropna()
 tfidf = TfidfVectorizer()
 X = tfidf.fit_transform(articles_df.clean_text)
