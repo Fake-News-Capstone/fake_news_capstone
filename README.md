@@ -204,36 +204,87 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
 ***   
     
 Findings 1:
-![title](Photos/fof.jpg)
-  
+![title](Photos/percentFakevsReal.png)
+ 
 ### Takeaways:
-    - 
+    -  We found that the the most common fake news words were time, one, donald, people, clinton
     
 ***   
     
 Findings 2:
-![title](Photos/fof.jpg)
+![title](Photos/word_clouds_rfa.png)
  
 ### Takeaways:   
-    -
+    - Said and donald trump are the tope two words in the fake news related articles. 
+    - This could be related to some quates that were infered by the press or missleading. (id like to look into this deeper and actualy compare if these statments match what trump acutaly said)
     
 ***
 
 Findings 3:
-![title](Photos/fof.jpg)
+![title](Photos/trump_fake_cloud.png)
 
 ### Takeaways:   
-    -
+    - The bigrams for fake news articles are filled with "in house" events and places such as supreme count, republican party, and trumps twitter tag. 
 
 ***   
     
 Findings 4:
-![title](Photos/fof.jpg)
+![title](Photos/real_bigrams.png)
+
+### Takeaways:   
+    - The bigrams for real news are filled with phrases that repesernt world events and significant moments in time. 
+
+***
+    
+Findings 5:
+![title](Photos/fake_trigrams.png)
+
+### Takeaways:   
+    -
+    
+***
+    
+Findings 6:
+![title](Photos/real_trigrams.png)
+
+### Takeaways:   
+    -
+ 
+***
+    
+Findings 7:
+![title](Photos/pol_sub.png)
 
 ### Takeaways:   
     -
 
 ***
+    
+Findings 8:
+![title](Photos/TF.png)
+
+### Takeaways:   
+    -
+
+***
+    
+Findings 9:
+![title](Photos/IDF.png)
+
+### Takeaways:   
+    -
+
+***
+    
+Findings 9:
+![title](Photos/TF-IDF.png)
+
+### Takeaways:   
+    -
+    
+    
+    
+    
     
     
 ### Explore.py 
@@ -261,22 +312,38 @@ Findings 4:
   <summary>Click to expand!</summary>
 
 ### Stats
+*****
+- **Stat Test 1**:
+*****
+    - confidence_level = .95
+    - a = 1 - confidence_level
+   *** 
+    - T-Test:
+        - HO: "The mean text polarity of fake news is the not more negative than real news"
+        - HA: "The mean text polarity of fake news is more negative than real news"
+   *** 
+    - t-stat:  3.3195
+    - p-value: 0.0009
+    - Result: We fail to reject the null hypothesis:  The mean text polarity of fake news is the not more negative than real news
 
-- Stat Test 1: 
-    - **T-Testing**:
-        - HO: 
-        - HA:
-        - t-stat: 
-        - p-value:
-        - Result:
+   *** 
 
-- Stat Test 2: 
-    - **Test Type**:
-        - HO: 
-        - HA:
-        - t-stat: 
-        - p-value:
-        - Result:
+*****
+- **Stat Test 2**:
+*****
+    - confidence_level = .95
+    - a = 1 - confidence_level
+   *** 
+    - T-Test:
+        - HO: "The mean text subjectivity of fake news is the not more subjective than real news"
+        - HA: "The mean text subjectivity of fake news is more subjective than real news"
+   *** 
+    - t-stat: 74.0828
+    - p-value: 0.00
+    - Result: We reject the null hypothesis. We move forward with the alternative hypothesis:  The mean text subjectivity of fake news is more subjective than real news
+
+   *** 
+
 </details>  
 
 ## <a name="model"></a>Modeling:
