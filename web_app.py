@@ -13,7 +13,7 @@ import spacy_streamlit
 nlp = spacy.load('en_core_web_md')
 nlp.add_pipe("spacytextblob")
 models = ["en_core_web_md"]
-visualizers = ["ner"]
+visualizers = ["ner",'tokens']
 #text = trump.clean_text.iloc[0]
 #doc = nlp(text)
 #displacy.serve(doc, style="ent")
@@ -31,33 +31,36 @@ def generate_output(text):
      #cats = nlp(text).cats
      text = clean(text)
      text = sl(text)
-     prediction = log_model(text)
+     prediction, probability = log_model(text)
     
      #if cats['FAKE'] > cats['REAL']:
-     if prediction == False:
+     if prediction == True:
          st.markdown("<h1><span style='color:red'>❌ This is a fake news article!😡</span></h1>",
                      unsafe_allow_html=True)
      else:
          st.markdown("<h1><span style='color:green'>✅ This is a real news article!👍</span></h1>",
                      unsafe_allow_html=True)
 
-     q_text = '> '.join(text.splitlines(True))
-     q_text = '> ' + q_text
-     doc = nlp(q_text)
+     #q_text = '> '.join(text.splitlines(True))
+     #q_text = '> ' + q_text
+     doc = nlp(text)
      #st.markdown(q_text)
      #st.write(displacy.serve(doc, style="ent"))
-     st.write('polarity: ',round(doc._.polarity,2),'subjectivity: ',round(doc._.subjectivity,2))
+     #st.write(prediction)
+     st.write('text_polarity: ',round(doc._.polarity,2),'text_subjectivity: ',round(doc._.subjectivity,2))
+     st.write('true_probability: ',round(probability[0][0],2), 'fake_probability: ',round(probability[0][1],2))
+     st.markdown('-----------')
      #st.markdown(q_text)
     
      font_path = 'Photos/coolvetica rg.ttf'
      wc = WordCloud(width = 1000,
                     height = 600,
-                    random_state = 1,                    
+                    #random_state = 1,                    
                     #stopwords = STOP_WORDS
                     max_words=None,
                     #min_font_size=,
                     font_path=font_path,
-                    background_color=None,
+                    background_color='black',
                     mode='RGBA',
                    colormap='Blues').generate(text)
 

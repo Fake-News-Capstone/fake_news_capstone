@@ -20,4 +20,5 @@ lm = LogisticRegression().fit(X_train, y_train)
 def log_model(text):
     text = tfidf.transform([text])
     prediction = lm.predict(text)
-    return prediction[0]
+    probability = lm.predict_proba(text)
+    return prediction[0], probability
