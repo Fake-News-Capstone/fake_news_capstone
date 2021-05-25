@@ -116,13 +116,13 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
   <summary>Click to expand!</summary>
 
 ### Explore:
-- Findings:
+- Findings: 
 
 ### Statistics:
 - Findings: 
 
 ### Modeling:
-- Findings:
+- Findings: The most reliable model was the logistic regression model with an in sample accuracy of .99 and an out of sample accuarcy of .98.
 
 ***
 </details>
@@ -201,31 +201,54 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
 <details>
   <summary>Click to expand!</summary>
 
-### Findings 1:
-- 
+***   
     
-### Findings 2:
-- 
+Findings 1:
+![title](Photos/fof.jpg)
+  
+### Takeaways:
+    - 
     
-### Findings 3:
-- 
+***   
     
-### Findings 4:
-- 
+Findings 2:
+![title](Photos/fof.jpg)
+ 
+### Takeaways:   
+    -
+    
+***
 
+Findings 3:
+![title](Photos/fof.jpg)
+
+### Takeaways:   
+    -
+
+***   
+    
+Findings 4:
+![title](Photos/fof.jpg)
+
+### Takeaways:   
+    -
+
+***
+    
+    
 ### Explore.py 
 | Function Name | Definition |
 | ------------ | ------------- |
-| show_counts_and_ratios |  |
-| _percentFakevsReal |  |
-| _wordcountsall |  |
-| _wordcount_fake |  |
-| _wordcount_real |  |
-| _word_clouds_rfa |  |
-| _fake_bigrams |  |
-| _real_bigrams |  |
-| _fake_trigrams |  |
-| _real_trigrams |  |
+| _show_counts_and_ratios | This fucntion takes in a dataframe and column name. Will produce a valuecounts for each label and the percetage of the data it represents |
+| _percentFakevsReal | This function takes in word_counts and returns a horizontal bar plot of the proportions of Fake vs Real news for the 20 most common words |
+| _wordcounts_all | This function takes in word_counts. Makes sure all words for 'fake' and 'all' are greater than 10. Generates a ratio column of fake words to all words and returns a dataframe of all the word counts and ratios for all, fake, and real words |
+| _wordcount_fake | This function takes in word_counts. Makes sure all words for 'fake' and 'real' are greater than 10. Generates a ratio column of fake words to real words and returns a dataframe of all the word counts and ratios for all, fake, and real words|
+| _wordcount_real | This function takes in word_counts. Makes sure all words for 'fake' and 'real' are greater than 10. Generates a ratio column of real words to fake words and returns a dataframe of all the word counts and ratios for all, fake, and real words |
+| _word_clouds_rfa | This function takes in all_words, fake_words, real_words. generates a word cloud for each aurgument with a fig size of (10, 8) and titles of all_cloud, fake_cloud, real_cloud. Returns a set of word clouds for all_words, fake_words, real_words |
+| _fake_bigrams | This function takes in fake_words. Generates a horizonalt bar chart with x and y labels for the top 20 fake bigrams. |
+| _real_bigrams | This function takes in real_words. Generates a horizontal bar chart with x and y labels for the top 20 real bigrams.  |
+| _fake_trigrams | This function takes in fake_words. Generates a horizontal bar chart with x and y labels for the top 20 fake trigrams.  |
+| _real_trigrams | This function takes in real_words. Generates a horizontal bar chart with x and y labels for the top 20 real trigrams.  |
 
 
 ***
