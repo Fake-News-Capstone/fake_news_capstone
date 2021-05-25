@@ -7,6 +7,7 @@ What is our goal?
 ![Fake News](Photos/fof.jpg)
 ***
 [[Project Description](#project_description)]
+[[Project Setup](#setup)]
 [[Project Planning](#planning)]
 [[Key Findings](#findings)]
 [[Data Dictionary](#dictionary)]
@@ -58,9 +59,49 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
 
 </details>
 
+## <a name="setup"></a>Project Setup: 
+[[Back to top](#top)]
+
+<details>
+  <summary>Click to expand!</summary>
+
+***
     
+### Dependencies:
+
+***
+ 
+- utilities.py
+        - Follow the instructions to use the latest features
+- python
+- pandas
+- nltk
+- re
+- numpy
+- matplotlib.pyplot
+- seaborn
+- wordcloud
+- PIL
+- Scipy
+- Sklearn
+
+***
+    
+### Steps to recreate:
+    
+***
+    - Clone this repository
+    - Install utilities.py according to the instructions
+    Setup env.py
+    - Follow the instructions in the notebook for acquiring the data from GitHub if it's the first time running the notebook
+
+***
+    
+</details>
+
 ## <a name="planning"></a>Project Planning: 
 [[Back to top](#top)]
+    
 <details>
   <summary>Click to expand!</summary>
 
@@ -102,6 +143,8 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
         
 ### Hypothesis
 - Fake news articles are more prone to be polarized and subjective.
+- Text polarity for fake news is less negative than the real news news articles.
+- Text subjectivity of fake news articles is less subjective than real news articles.
 
 ### Target variable
 - is_fake (If the news article is fake news)
@@ -212,16 +255,17 @@ Findings 1:
 ***   
     
 Findings 2:
-![title](Photos/word_clouds_rfa.png)
+![title](Photos/word_clouds_rfa2.png)
  
 ### Takeaways:   
     - Said and donald trump are the tope two words in the fake news related articles. 
-    - This could be related to some quates that were infered by the press or missleading. (id like to look into this deeper and actualy compare if these statments match what trump acutaly said)
+    -     - Said and donald trump are the top two words in the fake news related articles. 
+    - This could be related to some quates that were infered by the press. (id like to look into this deeper and actualy compare if these statments match what trump acutaly said)
     
 ***
 
 Findings 3:
-![title](Photos/trump_fake_cloud.png)
+![title](Photos/fake_bigrams.png)
 
 ### Takeaways:   
     - The bigrams for fake news articles are filled with "in house" events and places such as supreme count, republican party, and trumps twitter tag. 
@@ -232,11 +276,19 @@ Findings 4:
 ![title](Photos/real_bigrams.png)
 
 ### Takeaways:   
-    - The bigrams for real news are filled with phrases that repesernt world events and significant moments in time. 
-
-***
+    - The bigrams for real news are filled with phrases that represent world events and significant moments in time. 
+    
+***   
     
 Findings 5:
+![title](Photos/trump_fake_cloud.png)
+
+### Takeaways:   
+    - This visual represents the word frequency in the articles contraining the word trump (52% of all articles), and that are considered fake news.
+    
+***
+    
+Findings 6:
 ![title](Photos/fake_trigrams.png)
 
 ### Takeaways:   
@@ -244,7 +296,7 @@ Findings 5:
     
 ***
     
-Findings 6:
+Findings 7:
 ![title](Photos/real_trigrams.png)
 
 ### Takeaways:   
@@ -252,7 +304,7 @@ Findings 6:
  
 ***
     
-Findings 7:
+Findings 8:
 ![title](Photos/pol_sub.png)
 
 ### Takeaways:   
@@ -260,30 +312,27 @@ Findings 7:
 
 ***
     
-Findings 8:
+Findings 9: (Term Ferquency)
 ![title](Photos/TF.png)
 
 ### Takeaways:   
-    -
+    - 
 
 ***
     
-Findings 9:
+Findings 10: (Inverse Document Frequency)
 ![title](Photos/IDF.png)
 
 ### Takeaways:   
-    -
+    - 
 
 ***
     
-Findings 9:
+Findings 11: (TF-IDF)
 ![title](Photos/TF-IDF.png)
 
 ### Takeaways:   
     -
-    
-    
-    
     
     
     
