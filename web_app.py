@@ -8,10 +8,12 @@ from log_model import log_model
 from spacy import displacy
 from spacytextblob.spacytextblob import SpacyTextBlob
 from PIL import Image
-
+import spacy_streamlit
 
 nlp = spacy.load('en_core_web_md')
 nlp.add_pipe("spacytextblob")
+models = ["en_core_web_md"]
+visualizers = ["ner"]
 #text = trump.clean_text.iloc[0]
 #doc = nlp(text)
 #displacy.serve(doc, style="ent")
@@ -43,21 +45,30 @@ def generate_output(text):
      q_text = '> ' + q_text
      doc = nlp(q_text)
      #st.markdown(q_text)
-     st.write(displacy.serve(doc, style="ent"))
+     #st.write(displacy.serve(doc, style="ent"))
      st.write('polarity: ',round(doc._.polarity,2),'subjectivity: ',round(doc._.subjectivity,2))
      #st.markdown(q_text)
-
-     wc = WordCloud(width = 1000, height = 600,
-                    random_state = 1, background_color = 'white',
-                    stopwords = STOP_WORDS).generate(text)
+    
+     font_path = 'Photos/coolvetica rg.ttf'
+     wc = WordCloud(width = 1000,
+                    height = 600,
+                    random_state = 1,                    
+                    #stopwords = STOP_WORDS
+                    max_words=None,
+                    #min_font_size=,
+                    font_path=font_path,
+                    background_color=None,
+                    mode='RGBA',
+                   colormap='Blues').generate(text)
 
      fig, ax = plt.subplots()
      ax.imshow(wc)
-     ax.axis('off')
+     ax.axis('off')   
      st.pyplot(fig)
      #print(cats)
-
-#nlp = get_nlp_model('model')
+     
+        
+    
 
 desc = "This web app detects fake news written in English.\
         You can either enter the URL of a news article, or paste the text here(works better)."
@@ -74,11 +85,18 @@ if select_input == "URL":
     if st.button("Run"):
         text = get_page_text(url)
         generate_output(text)
+        spacy_streamlit.visualize(models, text,visualizers=visualizers,show_visualizer_select=True)
+        
+        
 
 else:
     text = st.text_area("Text", height=300)
-    if st.button("Run"):
+    if st.button("Run") and len(text)>100:
         generate_output(text)
+        spacy_streamlit.visualize(models, text,visualizers=visualizers,show_visualizer_select=True)
+        
+    else:
+        st.markdown('Please enter greater than 100 characters and try again')
 
 st.markdown("<br><br><hr><center>Created by <a href='https://github.com/Fake-News-Capstone/fake_news_capstone#top'><strong>Codeup - Easley Cohort  2021</strong></a></center><hr>", unsafe_allow_html=True)
 
