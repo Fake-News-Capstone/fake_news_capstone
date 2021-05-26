@@ -188,7 +188,7 @@ def _real_trigrams(real_words):
     top_20_real_trigrams2.sort_values().plot.barh(color='blue', width=.9, figsize=(10, 6))
 
     plt.title('20 Most frequently occuring real Trigrams')
-    plt.ylabel('Bigram')
+    plt.ylabel('Trigram')
     plt.xlabel('# Occurances')
 
     # make the labels pretty
@@ -212,7 +212,7 @@ def _fake_trigrams(fake_words):
     top_20_fake_trigrams2.sort_values().plot.barh(color='green', width=.9, figsize=(10, 6))
 
     plt.title('20 Most frequently occuring fake Trigrams')
-    plt.ylabel('Bigram')
+    plt.ylabel('Trigram')
     plt.xlabel('# Occurances')
 
     # make the labels pretty

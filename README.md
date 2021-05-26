@@ -158,14 +158,31 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
 <details>
   <summary>Click to expand!</summary>
 
+***
 ### Explore:
 - Findings: 
-
+    - The top words for fake news articles are: trump, said, people, president, one.
+    - The top words for real news articles are: said, trump, u, state, would. 
+    - The tope words for all news articles are: said, trump, u, state, would
+    - 50 percent of all articals had trump as a keyword, 54 percent of these instances are fake.
+    - Real news articles use words that are more centered around world events and places.
+    - Real news articles tend to have the most '... said' bigrams. We identifed this specifc bigram as a quote or statment from and individual.
+    - Fake news articles tend to have words with negative connotations such as bigoted, disgusting, pathetic, insane, and idiot. 
+    - The higest amkount of instances is associated with the word said at 118359 instances.
+    - The word said only occured in 19% of fake articles, while 81% where associated with real news articles.
+    - The second highest ammount of intances is associated with the word/name trump at 115797 intances and making up over 53% being in fake news realted articles. 
+    
+***
 ### Statistics:
-- Findings: 
-
+- Findings:
+    - We found that the mean text polarity of fake and real news was not significant enought to reject our null hypothesis. 
+    - We found that the mean text subjectivity of fake news greater than the subjectivity of real news.
+    - 
+    
+***
 ### Modeling:
-- Findings: The most reliable model was the logistic regression model with an in sample accuracy of .99 and an out of sample accuarcy of .98.
+- Findings: 
+    - The most reliable model was the logistic regression model with an in sample accuracy of .99 and an out of sample accuarcy of .98.
 
 ***
 </details>
@@ -268,7 +285,7 @@ Findings 3:
 ![title](Photos/fake_bigrams.png)
 
 ### Takeaways:   
-    - The bigrams for fake news articles are filled with "in house" events and places such as supreme count, republican party, and trumps twitter tag. 
+    - The bigrams for fake news articles are filled with "in house" events and places such as supreme count, republican party, and trumps twitter tag. (Hyper focused on the Republican Party and Trump)
 
 ***   
     
@@ -276,7 +293,7 @@ Findings 4:
 ![title](Photos/real_bigrams.png)
 
 ### Takeaways:   
-    - The bigrams for real news are filled with phrases that represent world events and significant moments in time. 
+    - The bigrams for real news are filled with phrases that represent world events, significant moments in time and statments from others. 
     
 ***   
     
