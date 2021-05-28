@@ -3,7 +3,7 @@
 What is our goal?
 - Our team seeks to differentiate fake news from real news through the exploration and analysis of keywords and phrases of random news articles. We will utilize NLP tools and build a classification model in hopes to shed light on purposely misleading information.
 
-- Fake News Detector Web App: https://tinyurl.com/easely-fake-news-detector
+- Fake News Detector Web App: http://easleyfakenewsdetector.com/
 
 # <a name="top"></a> Fake News Capstone - README.md
 ![Fake News](Photos/fof.jpg)
