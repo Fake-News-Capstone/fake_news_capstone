@@ -164,8 +164,8 @@ https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=Fake.cs
 ### Explore:
 - Findings: 
     - The top words for fake news articles are: trump, said, people, president, one.
-    - The top words for real news articles are: said, trump, u, state, would. 
-    - The top words for all news articles are: said, trump, u, state, would
+    - The top words for real news articles are: said, trump, us, state, would. 
+    - The top words for all news articles are: said, trump, us, state, would
     - 50 percent of all articles had trump as a keyword, 54 percent of these instances are fake.
     - Real news articles use words that are more centered around world events and places.
     - Real news articles tend to have the most '... said' bigrams. We identifed this specifc bigram as a quote or statment from and individual.
@@ -277,9 +277,9 @@ Findings 2:
 ![title](Photos/word_clouds_rfa2.png)
  
 ### Takeaways:   
-    - Said and donald trump are the tope two words in the fake news related articles. 
+    - Said and donald trump are the top two words in the fake news related articles. 
     -     - Said and donald trump are the top two words in the fake news related articles. 
-    - This could be related to some quates that were infered by the press. (id like to look into this deeper and actualy compare if these statments match what trump acutaly said)
+    - This could be related to some quotes that were inferred by the press. (I'd like to look into this deeper and actualy compare if these statments match what trump acutaly said)
     
 ***
 
