@@ -23,7 +23,7 @@ st.set_page_config(page_title = "Fake News Detector")
 
 
 
-
+@st.cache(suppress_st_warning=True)
 def generate_output(text):
      
      text = clean(text)
