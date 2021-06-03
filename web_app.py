@@ -47,9 +47,9 @@ def generate_output(text):
      st.write('true_probability: ',round(probability[0][0],2), 'fake_probability: ',round(probability[0][1],2))
      st.markdown('-----------')
      
-    
-     font_path = 'Photos/coolvetica rg.ttf'
-     wc = WordCloud(width = 1000,
+def cloud(text):
+    font_path = 'Photos/coolvetica rg.ttf'
+    wc = WordCloud(width = 1000,
                     height = 600,
                     #random_state = 1,                    
                     #stopwords = STOP_WORDS
@@ -60,10 +60,10 @@ def generate_output(text):
                     mode='RGBA',
                    colormap='Greens').generate(text)
 
-     fig, ax = plt.subplots()
-     ax.imshow(wc)
-     ax.axis('off')   
-     st.pyplot(fig)
+    fig, ax = plt.subplots()
+    ax.imshow(wc)
+    ax.axis('off')   
+    st.pyplot(fig)
      
      
         
@@ -84,6 +84,7 @@ if select_input == "URL":
     if st.button("Run"):
         text = get_page_text(url)
         generate_output(text)
+        cloud(text)
         spacy_streamlit.visualize(models, text,visualizers=visualizers,show_visualizer_select=True)
         
         
@@ -92,6 +93,7 @@ else:
     text = st.text_area("Text", height=300)
     if st.button("Run") and len(text)>100:
         generate_output(text)
+        cloud(text)
         spacy_streamlit.visualize(models, text,visualizers=visualizers,show_visualizer_select=True)
         
     else:
