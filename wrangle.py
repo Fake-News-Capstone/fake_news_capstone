@@ -59,13 +59,13 @@ def _nlp_clean_titles_and_text(df):
     
     articles_df['clean_title'] = articles_df.title.apply(utils.nlp_basic_clean)
     articles_df.clean_title = articles_df.clean_title.apply(utils.nlp_tokenize)
-    articles_df.clean_title = articles_df.clean_title.apply(utils.nlp_remove_stopwords, extra_words=["reuters"])
     articles_df.clean_title = articles_df.clean_title.apply(utils.nlp_lemmatize)
+    articles_df.clean_title = articles_df.clean_title.apply(utils.nlp_remove_stopwords, extra_words=["reuters", "u", "image", "via"])
     
     articles_df['clean_text'] = articles_df.text.apply(utils.nlp_basic_clean)
     articles_df.clean_text = articles_df.clean_text.apply(utils.nlp_tokenize)
-    articles_df.clean_text = articles_df.clean_text.apply(utils.nlp_remove_stopwords, extra_words=["reuters"])
     articles_df.clean_text = articles_df.clean_text.apply(utils.nlp_lemmatize)
+    articles_df.clean_text = articles_df.clean_text.apply(utils.nlp_remove_stopwords, extra_words=["reuters", "u", "image", "via"])
     
     return articles_df
 
@@ -102,10 +102,10 @@ def wrangle_articles():
     articles_df = _standardize_dates(articles_df)
     articles_df.date = pd.to_datetime(articles_df.date, format="%b %d, %Y")
     
-    articles_df = _nlp_clean_titles_and_text(articles_df)
-    articles_df = articles_df.sort_values(by='date')
-    
     articles_df = _drop_empty_rows(articles_df)
     articles_df = articles_df.drop_duplicates(subset=['title','text'])
+    
+    articles_df = _nlp_clean_titles_and_text(articles_df)
+    articles_df = articles_df.sort_values(by='date')
     
     return _add_sentiment_analysis(articles_df)
