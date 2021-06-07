@@ -377,12 +377,9 @@ Findings 11: (Clustering)
 
 - General trend: As text subjectivity goes up text becomes more polarized in both directions     
     
+*** 
 **CLUSTER_0** - Is mostly real news articles with close to zero text_polarity and low text_subjectivity on average. This cluster can be named "unbiased_factual".
- 
-- Example of atrical cluster
 
-- Word clouds for each cluster.
-    
 *** 
 **CLUSTER_1** - Articles are mostly fake with close to zero text_polarity and high
     text_subjectivity on average. This cluster contains "unbiased_mostly_non_factual"
